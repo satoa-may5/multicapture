@@ -132,7 +132,7 @@ class BuildCommandIdenticalTests(unittest.TestCase):
     def original_module():
         try:
             src = subprocess.run(["git", "show", "e111bb8:multicapture/ffmpeg.py"], cwd=ROOT, capture_output=True,
-                                 text=True, timeout=30, check=True).stdout
+                                 text=True, encoding="utf-8", timeout=30, check=True).stdout
         except (OSError, subprocess.SubprocessError):
             return None
         sys.path.insert(0, ROOT)
